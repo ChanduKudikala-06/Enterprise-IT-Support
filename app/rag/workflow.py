@@ -61,3 +61,19 @@ def route_question(state:AgentState):
     Return valid JSON like {{"route":"kb"}}.
     """)
     return {"source_used":decision.route,"trace":add_trace(state,f"Router -> {decision.route}")}
+
+
+def ask(question:str):
+    inital:AgentState={
+        "question":question,
+        "current_query":question,
+        "kb_docs":[],
+        "web_results":"",
+        "kb_grade":"",
+        "web_grade":"",
+        "answer":"",
+        "source_used":"",
+        "retry_count":0,
+        "trace":[],
+        "citations":[]
+    }

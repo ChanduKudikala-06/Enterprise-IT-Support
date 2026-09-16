@@ -1,3 +1,4 @@
+#Auditing used to store in SQLITE3
 import json
 import sqlite3
 from datetime import datetime,timezone
@@ -24,7 +25,7 @@ def write_audit(question:str,source_used:str,trace:list[str])->None:
     con=sqlite3.connect(settings.audit_db_path)
     con.execute(
         "INSERT INTO query_audit(created_at,question,source_used,trace_json) VALUES (?,?,?,?)",
-        (datetime.now(timezone.utc).isoformat(),question,source_used,json_dumps(trace)),
+        (datetime.now(timezone.utc).isoformat(),question,source_used,json.dumps(trace)),
     )
     con.commit()
     con.close()
