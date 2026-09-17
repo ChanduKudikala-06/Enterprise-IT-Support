@@ -1,7 +1,6 @@
 from pathlib import Path
 from fastapi import APIRouter,UploadFile,File,HTTPException,Header
 
-from google.auth import default
 from pydantic import BaseModel,Field
 from app.core.config import get_Settings
 from app.rag.workflow import ask

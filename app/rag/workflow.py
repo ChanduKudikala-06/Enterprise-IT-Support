@@ -1,7 +1,6 @@
 import logging
 from typing import Literal
 
-from chromadb import get_settings
 from langchain_openai import ChatOpenAI
 from openai import max_retries
 from langchain_tavily import TavilySearch
