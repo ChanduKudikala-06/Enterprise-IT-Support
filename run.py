@@ -1,6 +1,4 @@
-from app.services.ingestion import load_file
+import uvicorn
 
-from pathlib import Path
-docs=load_file(Path("D:\Projects\Enterprise-IT-Support\data\sample_kb\company_it_handbook.md"))
-
-print(docs[0].page_content)
+if __name__=="__main__":
+    uvicorn.run("app.main:app",host="127.0.0.1",port=8000,reload=True)
